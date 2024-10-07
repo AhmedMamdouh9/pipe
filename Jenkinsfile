@@ -1,7 +1,8 @@
 pipeline {
     agent any 
 
-    stage('Requirements And Test') {
+    stages {
+        stage('Requirements And Test') {
             steps {
                 sh '''
                 python3 -m venv venv
