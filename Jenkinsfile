@@ -11,21 +11,21 @@ pipeline {
 
         stage('Docker Login') {
             steps {
-                withCredentials([string(credentialsId: 'JENKINS_PASSWORD', variable: 'DOCKER_PASSWORD')]) {
-                    sh 'echo $DOCKER_PASSWORD | docker login -u mustafa3li --password-stdin'
+                withCredentials([string(credentialsId: 'JENKINS_PASSWORD_1', variable: 'DOCKER_PASSWORD')]) {
+                    sh 'echo $DOCKER_PASSWORD | docker login -u ahmedmamdouh51099 --password-stdin'
                 }
             }
         }
 
         stage('Docker Build') { 
             steps {
-                sh 'docker build -t mustafa3li/palestine:latest .' 
+                sh 'docker build -t ahmedmamdouh51099/pipe:latest .' 
             }
         }
 
         stage('Docker Push') {
             steps {
-                sh 'docker push mustafa3li/palestine:latest'
+                sh 'docker push ahmedmamdouh51099/pipe:latest'
             }
         }
     }
